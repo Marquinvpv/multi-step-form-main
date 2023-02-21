@@ -1,0 +1,45 @@
+.step-container {
+    width: 25%;
+    background: url("../../assets/images/bg-sidebar-desktop.svg") no-repeat;
+    background-size: cover;
+    border-radius: 0.5rem;
+    padding: 2.4vw 1.5vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;/* Espaçamento entre os li */
+}
+
+.step-li {
+    list-style: none;
+    display: flex;
+    gap: 1vw; /* Espaçamento entre os itens */
+    align-items: center;
+    color: var(--White);
+}
+
+.number {
+    border: 1px solid var(--White);
+    border-radius: 100%;
+    background-color: transparent;
+    width: 2vw;
+    height: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step-number {
+    font-size: 0.65rem;
+    color: var(--Light-gray);
+}
+
+.step-name {
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.active {
+    background-color: var(--Light-blue);
+    color: var(--Marine-blue);
+}

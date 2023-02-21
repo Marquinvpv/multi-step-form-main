@@ -1,0 +1,10 @@
+.signin-container {
+    width: 70vw;
+    height: 40vw;
+    background-color: var(--White);
+    box-sizing: border-box;
+    padding: 1vw;
+    border-radius: 0.7rem;
+    display: flex;
+    gap: 4vw;
+}
