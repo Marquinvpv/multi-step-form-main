@@ -8,18 +8,17 @@ import "../css/form.css";
 
 const Form = ({step, setStep}) => {
 
-    const[nameError,setNameError] = useState(false)
+    const[messageError,setMessageError] = useState();
+    const[fieldsetData, setFieldsetData] = useState({});
 
     const submitHandler = (e) => {
-        if(!fieldsetData.hasOwnProperty('NAME')) {
-            setNameError = true;
-            return(nameError)
+        setMessageError();
+        if(fieldsetData.NAME.length < 1) {
+            setMessageError('This field is required');
+            return messageError;
         }
-        console.log(e.target.EMAIL.value);
         step < 4 ? setStep(step + 1) : setStep(4); 
-    }
-
-    const [fieldsetData, setFieldsetData] = useState({});
+    };
 
     const handleFieldsetData = (name, value) => {
         setFieldsetData({...fieldsetData,[name]:value});
@@ -35,7 +34,7 @@ const Form = ({step, setStep}) => {
             <Yourinfo 
                 step = {step}
                 onFieldsetData={handleFieldsetData}
-                nameError = {nameError}
+                messageError = {messageError}
             />
 
             <Selectplan 

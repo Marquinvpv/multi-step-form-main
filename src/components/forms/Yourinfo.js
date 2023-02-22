@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import "../../css/form.css";
 
-const Yourinfo = ({ step, onFieldsetData, nameError }) => {
+const Yourinfo = ({ step, onFieldsetData, messageError }) => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -17,21 +17,29 @@ const Yourinfo = ({ step, onFieldsetData, nameError }) => {
             </div>
 
             <div className='wrapper'>
-                <label>Name</label>
-                {nameError && (
-                    <input id='NAME' name='NAME' className='NAME' type='text' onChange={handleChange} data-error="this field is required" />
+                {messageError ? (
+                    <>
+                        <label>Name <span className='error-message'>{messageError}</span></label>
+                        <input className='error-input' name='NAME' type='text' onChange={handleChange} />
+
+                        <label>Email Address<span className='error-message'>{messageError}</span></label>
+                        <input className='error-input' id='EMAIL' type='email' onChange={handleChange} />
+
+                        <label>Phone Number<span className='error-message'>{messageError}</span></label>
+                        <input className='error-input' id='PHONE' type='text' onChange={handleChange} />
+                    </>
+                ) : (
+                    <>
+                        <label>Name</label>
+                        <input id='NAME' name='NAME' type='text' onChange={handleChange} />
+
+                        <label>Email Address</label>
+                        <input id='EMAIL' type='email' onChange={handleChange} />
+
+                        <label>Phone Number</label>
+                        <input id='PHONE' type='text' onChange={handleChange} />
+                    </>
                 )}
-                {!nameError && (
-                    <input id='NAME' name='NAME' type='text' onChange={handleChange} data-error="this field is required" />
-                )}
-            </div>
-            <div className='wrapper'>
-                <label>Email Address</label>
-                <input id='EMAIL' type='email' />
-            </div>
-            <div className='wrapper'>
-                <label>Phone Number</label>
-                <input id='PHONE' type='text' />
             </div>
         </fieldset>
     );
